@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Sigalmark User Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Sigalmark Docs</a>
+      <div class="nav-links">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="batch-upload.html">Batch Upload</a>
+        <a href="verification.html">Verification</a>
+        <a href="faq.html">FAQ</a>
+        <a href="tutorial-user.html">User Tutorial</a>
+        <a href="tutorial-admin.html">Admin Tutorial</a>
+        <a href="tutorial-operator.html">Operator Tutorial</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Frequently Asked Questions</h1>
+    <p class="subtitle">Quick answers to common questions about the Sigalmark platform.</p>
+
+    <h2>General</h2>
+
+    <div class="faq-item">
+      <h3>What is Sigalmark?</h3>
+      <p>
+        Sigalmark is a blockchain-based digital certificate platform. Organisations use it to issue tamper-proof
+        certificates as ERC-721 NFTs, which can be verified by anyone via a QR code scan or online lookup.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What does "blockchain-backed" mean for my certificates?</h3>
+      <p>
+        Each certificate is minted as an NFT (non-fungible token) on a blockchain network. This means the certificate
+        data is stored on a decentralised, immutable ledger &mdash; it cannot be altered, forged, or deleted. Anyone
+        can independently verify its authenticity.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do I need cryptocurrency to use Sigalmark?</h3>
+      <p>
+        No. The platform handles all blockchain transactions behind the scenes. You do not need a crypto wallet
+        or any cryptocurrency to issue or verify certificates.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I join an organisation?</h3>
+      <p>
+        You need an invitation from an Admin of the organisation. They can send you one from the
+        <strong>Tenant &gt; Roles &amp; Invitations</strong> page. You will receive an email with a link to accept.
+      </p>
+    </div>
+
+    <h2>Certificates</h2>
+
+    <div class="faq-item">
+      <h3>How many certificates can I issue at once?</h3>
+      <p>
+        You can issue up to <strong>25 certificates per batch</strong> via CSV upload. If your CSV has more than 25 rows,
+        the platform will offer to split it into multiple batches automatically.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I revoke a certificate after issuing it?</h3>
+      <p>
+        Yes. You can revoke a certificate from the Issued tab. Revocation is permanent and updates the certificate's
+        on-chain status. Revoked certificates will show as "Revoked" when someone verifies them.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I extend an expired certificate?</h3>
+      <p>
+        Yes. You can extend the expiry date of a certificate from the Issued tab, even after it has expired.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What happens when a certificate expires?</h3>
+      <p>
+        Expired certificates remain on the blockchain but show an "Expired" status when verified. The platform
+        sends automated email notifications to certificate holders at 30 days, 7 days, and 1 day before expiry,
+        and 7 days after expiry.
+      </p>
+    </div>
+
+    <h2>Batch Upload</h2>
+
+    <div class="faq-item">
+      <h3>What date format should I use in the CSV?</h3>
+      <p>
+        The <code>expiry</code> column accepts two formats:
+      </p>
+      <ul>
+        <li><strong>ISO (recommended):</strong> <code>YYYY-MM-DD</code> (e.g. <code>2026-12-31</code>)</li>
+        <li><strong>US:</strong> <code>MM/DD/YYYY</code> (e.g. <code>12/31/2026</code>)</li>
+      </ul>
+      <p>We recommend ISO format to avoid ambiguity between day and month.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What is the imageURI column for?</h3>
+      <p>
+        The optional <code>imageURI</code> column lets you attach an image to each certificate. The value must be a
+        <strong>direct URL to an image file</strong> (e.g. ending in <code>.png</code> or <code>.jpg</code>).
+      </p>
+      <p>
+        <strong>Important:</strong> Do not use webpage links (e.g. Google Drive sharing links or pages with embedded images).
+        The URL must point directly to the image file so it can be downloaded and embedded in the certificate.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>My CSV has more than 25 rows. What should I do?</h3>
+      <p>
+        Simply upload it as-is. The platform will detect the large file and offer to automatically split it into
+        batches of 25 rows each, which are then minted sequentially.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What headers are required in the CSV?</h3>
+      <p>
+        Required: <code>name</code>, <code>competency</code>, <code>expiry</code>.<br>
+        Optional: <code>companyEmail</code>, <code>imageURI</code>.
+      </p>
+      <p>The header names are case-sensitive and must appear in the first row.</p>
+    </div>
+
+    <h2>Verification</h2>
+
+    <div class="faq-item">
+      <h3>How do I verify a certificate?</h3>
+      <p>
+        The simplest way is to scan the QR code on the certificate with your phone camera or the Sigalmark mobile app.
+        You can also go to the Verify page on the website and paste a URL, upload a QR code image, or enter the
+        certificate's contract address and token ID manually.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do I need an account to verify a certificate?</h3>
+      <p>
+        No. Certificate verification is public &mdash; anyone can verify a certificate without logging in.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What does "Certificate validated" mean?</h3>
+      <p>
+        When you see "Certificate validated" on the verification page, it means the system has successfully read the
+        certificate data from the blockchain and confirmed it is a legitimate Sigalmark certificate. Check the status
+        field (Valid, Expired, or Revoked) for the certificate's current standing.
+      </p>
+    </div>
+
+    <h2>Account &amp; Security</h2>
+
+    <div class="faq-item">
+      <h3>How do I enable two-factor authentication?</h3>
+      <p>
+        Go to your <strong>Profile</strong> page and follow the 2FA setup wizard. You will need an authenticator app
+        such as Google Authenticator or Authy.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>I forgot my password. How do I reset it?</h3>
+      <p>
+        Click <strong>Forgot Password</strong> on the login page. Enter your email address and you will receive
+        a password reset link.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">Sigalmark &copy; 2026. Secure blockchain-based certification technology.</div>
+</body>
+</html>

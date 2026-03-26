@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificates - Sigalmark User Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Sigalmark Docs</a>
+      <div class="nav-links">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="certificates.html" class="active">Certificates</a>
+        <a href="batch-upload.html">Batch Upload</a>
+        <a href="verification.html">Verification</a>
+        <a href="faq.html">FAQ</a>
+        <a href="tutorial-user.html">User Tutorial</a>
+        <a href="tutorial-admin.html">Admin Tutorial</a>
+        <a href="tutorial-operator.html">Operator Tutorial</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Certificates</h1>
+    <p class="subtitle">Issue, manage, and distribute blockchain-backed certificates.</p>
+
+    <h2>Certificates Page Overview</h2>
+    <p>The Certificates page is the main hub of the platform. It has three tabs:</p>
+    <ul>
+      <li><strong>Create</strong> &mdash; Issue new certificates (single or batch).</li>
+      <li><strong>Issued</strong> &mdash; View, search, and manage all issued certificates.</li>
+      <li><strong>Stats</strong> &mdash; Analytics dashboard with issuance metrics.</li>
+    </ul>
+
+    <h2>Issuing a Single Certificate</h2>
+    <ol>
+      <li>Go to the <strong>Certificates</strong> page and select the <strong>Create</strong> tab.</li>
+      <li>Fill in the required fields:
+        <ul>
+          <li><strong>Name</strong> &mdash; The name of the certified company or individual.</li>
+          <li><strong>Competency</strong> &mdash; The qualification or certification type.</li>
+          <li><strong>Expiry Date</strong> &mdash; When the certificate expires.</li>
+        </ul>
+      </li>
+      <li>Optionally add:
+        <ul>
+          <li><strong>Company Email</strong> &mdash; Recipient's email for certificate delivery.</li>
+          <li><strong>Certificate Image</strong> &mdash; Upload an image to embed in the certificate.</li>
+        </ul>
+      </li>
+      <li>Click <strong>Add Certificate</strong> to mint it on the blockchain.</li>
+    </ol>
+
+    <div class="info-box">
+      <strong>Blockchain minting</strong>
+      When you issue a certificate, it is minted as an ERC-721 NFT on the blockchain. This makes it tamper-proof
+      and independently verifiable by anyone.
+    </div>
+
+    <h2>Batch Issuance (CSV)</h2>
+    <p>
+      You can issue up to 25 certificates at once by uploading a CSV file. For detailed instructions on preparing
+      your CSV, see the <a href="batch-upload.html">Batch Upload Guide</a>.
+    </p>
+
+    <h2>Managing Issued Certificates</h2>
+    <p>On the <strong>Issued</strong> tab, you can see all certificates with their status and perform actions:</p>
+
+    <h3>Individual Actions</h3>
+    <ul>
+      <li><strong>Email</strong> &mdash; Send the certificate with its QR code to the recipient's email address.</li>
+      <li><strong>Revoke</strong> &mdash; Permanently revoke a certificate. This updates its on-chain status.</li>
+      <li><strong>Extend</strong> &mdash; Extend the expiry date of a certificate.</li>
+      <li><strong>Download QR</strong> &mdash; Download the branded QR code image for the certificate.</li>
+    </ul>
+
+    <h3>Bulk Actions</h3>
+    <ul>
+      <li><strong>Email All</strong> &mdash; Send certificates to all recipients who have a company email.</li>
+      <li><strong>Bulk Renew</strong> &mdash; Extend expiry for multiple certificates at once.</li>
+      <li><strong>Export CSV</strong> &mdash; Download a CSV of all issued certificates.</li>
+    </ul>
+
+    <h3>Certificate Statuses</h3>
+    <table>
+      <thead>
+        <tr><th>Status</th><th>Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Valid</strong></td><td>Certificate is active and has not expired.</td></tr>
+        <tr><td><strong>Expired</strong></td><td>Certificate has passed its expiry date. It can be extended.</td></tr>
+        <tr><td><strong>Revoked</strong></td><td>Certificate has been permanently revoked. It cannot be reinstated.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Emailing Certificates</h2>
+    <p>
+      When you email a certificate, the recipient receives a branded email containing their certificate details,
+      a QR code image, and a link to view and verify the certificate online. The email includes:
+    </p>
+    <ul>
+      <li>Welcome message from your organisation.</li>
+      <li>Instructions for displaying the Registered Member certificate.</li>
+      <li>The QR code image (can be scanned to verify).</li>
+      <li>Certificate details: company name, competency, expiry date.</li>
+      <li>A direct link to view and verify the certificate.</li>
+    </ul>
+
+    <div class="warning-box">
+      <strong>Important</strong>
+      You cannot email a revoked certificate. The recipient's <code>companyEmail</code> field must be set before you can send.
+    </div>
+
+    <h2>Expiry Notifications</h2>
+    <p>
+      The platform automatically sends email notifications to certificate holders as their certificates approach
+      expiry. Notifications are sent:
+    </p>
+    <ul>
+      <li>30 days before expiry</li>
+      <li>7 days before expiry</li>
+      <li>1 day before expiry</li>
+      <li>7 days after expiry</li>
+    </ul>
+
+    <h2>Stats Dashboard</h2>
+    <p>
+      The <strong>Stats</strong> tab shows analytics about your certificate issuance, including the number of
+      certificates issued, their statuses, and trends over time.
+    </p>
+  </div>
+
+  <div class="footer">Sigalmark &copy; 2026. Secure blockchain-based certification technology.</div>
+</body>
+</html>

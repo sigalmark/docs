@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch Upload Guide - Sigalmark User Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Sigalmark Docs</a>
+      <div class="nav-links">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="batch-upload.html" class="active">Batch Upload</a>
+        <a href="verification.html">Verification</a>
+        <a href="faq.html">FAQ</a>
+        <a href="tutorial-user.html">User Tutorial</a>
+        <a href="tutorial-admin.html">Admin Tutorial</a>
+        <a href="tutorial-operator.html">Operator Tutorial</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Batch Upload Guide</h1>
+    <p class="subtitle">Issue multiple certificates at once using a CSV file.</p>
+
+    <h2>Overview</h2>
+    <p>
+      The batch upload feature lets you issue up to <strong>25 certificates per batch</strong> by uploading a CSV file.
+      If your CSV has more than 25 rows, the platform will offer to split it into multiple batches automatically.
+    </p>
+
+    <h2>CSV Format</h2>
+    <p>Your CSV file must include a header row. The following columns are supported:</p>
+
+    <table>
+      <thead>
+        <tr><th>Column</th><th>Required</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>name</code></td>
+          <td>Yes</td>
+          <td>The name of the certified company or individual.</td>
+        </tr>
+        <tr>
+          <td><code>competency</code></td>
+          <td>Yes</td>
+          <td>The qualification or certification type (e.g. "First Aid", "ISO 9001").</td>
+        </tr>
+        <tr>
+          <td><code>expiry</code></td>
+          <td>Yes</td>
+          <td>The certificate expiry date. See <a href="#date-format">Date Format</a> below.</td>
+        </tr>
+        <tr>
+          <td><code>companyEmail</code></td>
+          <td>No</td>
+          <td>Recipient's email address for certificate delivery.</td>
+        </tr>
+        <tr>
+          <td><code>imageURI</code></td>
+          <td>No</td>
+          <td>A direct URL to a certificate image. See <a href="#image-uri">imageURI</a> below.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Example CSV</h3>
+    <pre><code>name,companyEmail,competency,expiry,imageURI
+Acme Ltd,admin@acme.example,First Aid,2030-12-31,
+Beta Corp,info@beta.example,ISO 9001,2028-06-15,https://example.com/images/beta-cert.png
+Gamma Inc,,Fire Safety,12/31/2027,</code></pre>
+
+    <h2 id="date-format">Date Format (expiry column)</h2>
+    <p>The <code>expiry</code> column accepts two date formats:</p>
+
+    <table>
+      <thead>
+        <tr><th>Format</th><th>Pattern</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ISO (recommended)</strong></td>
+          <td><code>YYYY-MM-DD</code></td>
+          <td><code>2026-12-31</code></td>
+        </tr>
+        <tr>
+          <td><strong>US</strong></td>
+          <td><code>MM/DD/YYYY</code></td>
+          <td><code>12/31/2026</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-box">
+      <strong>Tip</strong>
+      We recommend using ISO format (<code>YYYY-MM-DD</code>) to avoid ambiguity between day and month,
+      especially if your data comes from different regions.
+    </div>
+
+    <div class="warning-box">
+      <strong>Common mistake</strong>
+      Dates like <code>01/02/2026</code> are interpreted as <strong>January 2nd</strong> (US format), not February 1st.
+      Use ISO format if this could cause confusion.
+    </div>
+
+    <h2 id="image-uri">imageURI Column</h2>
+    <p>
+      The <code>imageURI</code> column is optional. When provided, it must be a <strong>direct URL to an image file</strong>.
+    </p>
+
+    <h3>What counts as a direct image URL?</h3>
+    <ul>
+      <li>The URL should point directly to an image file (typically ending in <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.gif</code>, or <code>.webp</code>).</li>
+      <li>When you open the URL in a browser, you should see <strong>only the image</strong> &mdash; not a webpage with the image embedded in it.</li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr><th>Correct</th><th>Incorrect</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>https://example.com/images/cert.png</code></td>
+          <td><code>https://example.com/certificates/view/123</code></td>
+        </tr>
+        <tr>
+          <td><code>https://cdn.example.com/logo.jpg</code></td>
+          <td><code>https://drive.google.com/file/d/abc123/view</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warning-box">
+      <strong>Important</strong>
+      A webpage link (e.g. a Google Drive sharing link or a page that contains an image) will <strong>not</strong> work.
+      The URL must point directly to the image file so it can be downloaded and embedded in the certificate.
+    </div>
+
+    <h2>Download the Template</h2>
+    <p>
+      On the Certificates page, click the <strong>Download template</strong> button in the "Batch issue (CSV)" section
+      to get a pre-formatted CSV with the correct headers and an example row.
+    </p>
+
+    <h2>Uploading Your CSV</h2>
+    <ol>
+      <li>Go to <strong>Certificates &gt; Create</strong> and scroll to the "Batch issue (CSV)" section.</li>
+      <li>Click the file input and select your CSV file.</li>
+      <li>The platform will validate your CSV and show a preview table with each row's status.</li>
+      <li>Rows marked <strong>OK</strong> are ready to mint. Rows with errors will show the issue (e.g. missing required field).</li>
+      <li>Click <strong>Mint batch</strong> to issue all valid certificates.</li>
+    </ol>
+
+    <h2>Large CSV Files (more than 25 rows)</h2>
+    <p>
+      If your CSV contains more than 25 rows, the platform will detect this and offer you three options:
+    </p>
+    <ul>
+      <li><strong>Split into batches</strong> &mdash; Automatically split the CSV into chunks of 25 and mint them sequentially.</li>
+      <li><strong>Use first 25 only</strong> &mdash; Only process the first 25 rows.</li>
+      <li><strong>Cancel</strong> &mdash; Go back and modify your CSV.</li>
+    </ul>
+
+    <h2>Troubleshooting</h2>
+
+    <h3>"CSV must include headers: name, competency, expiry"</h3>
+    <p>Your CSV is missing one or more required columns. Make sure the first row contains exactly these header names (case-sensitive).</p>
+
+    <h3>Rows showing errors in preview</h3>
+    <p>Check that each row has values for <code>name</code>, <code>competency</code>, and <code>expiry</code>. Dates must be in one of the accepted formats.</p>
+
+    <h3>imageURI not loading</h3>
+    <p>Ensure the URL is a direct link to the image file. Try opening the URL in a new browser tab &mdash; if you see the image by itself (not embedded in a webpage), the URL is correct.</p>
+  </div>
+
+  <div class="footer">Sigalmark &copy; 2026. Secure blockchain-based certification technology.</div>
+</body>
+</html>

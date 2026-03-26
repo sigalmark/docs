@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Tutorial - Sigalmark User Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Sigalmark Docs</a>
+      <div class="nav-links">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="batch-upload.html">Batch Upload</a>
+        <a href="verification.html">Verification</a>
+        <a href="faq.html">FAQ</a>
+        <a href="tutorial-user.html">User Tutorial</a>
+        <a href="tutorial-admin.html" class="active">Admin Tutorial</a>
+        <a href="tutorial-operator.html">Operator Tutorial</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Admin Tutorial</h1>
+    <p class="subtitle">A comprehensive guide for Tenant Admins &mdash; manage your organisation's members, billing, branding, and certificates.</p>
+
+    <div class="info-box">
+      <strong>Who is this for?</strong>
+      This tutorial is for users with the <strong>Admin</strong> role within an organisation. Admins have full control over tenant settings, member management, billing, branding, and certificates. If you are a regular Member, see the <a href="tutorial-user.html">User Tutorial</a> instead.
+    </div>
+
+    <!-- ===== Section 1: Tenant Dashboard ===== -->
+    <h2>1. Tenant Dashboard</h2>
+    <p>
+      The Tenant Dashboard is your central hub for managing your organisation. It gives you an at-a-glance view of your subscription status, resource usage, and quick actions.
+    </p>
+    <ol>
+      <li>Log in to the Sigalmark platform with your Admin account.</li>
+      <li>Click <strong>Tenant</strong> in the sidebar navigation to open the tenant console.</li>
+      <li>
+        Review the dashboard cards:
+        <ul>
+          <li><strong>Subscription Status</strong> &mdash; Shows your current plan name, billing interval (monthly or yearly), and whether the subscription is active or expired.</li>
+          <li><strong>Seat Usage</strong> &mdash; Displays how many member seats are occupied out of your plan's total allocation (e.g., 3 / 5 seats used).</li>
+          <li><strong>Certificate Usage</strong> &mdash; Shows the number of certificates issued against your plan's certificate quota.</li>
+        </ul>
+      </li>
+      <li>Use the quick action buttons to navigate directly to <strong>Members</strong>, <strong>Branding</strong>, <strong>Subscription</strong>, or <strong>Billing</strong> settings.</li>
+    </ol>
+    <img src="images/admin-tenant-dashboard.png" alt="Tenant console overview showing subscription status, seat usage, certificate usage, and quick action buttons" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <div class="info-box">
+      <strong>Tip</strong>
+      If your subscription has expired, a banner will appear at the top of the dashboard with a link to renew. You will not be able to issue new certificates until the subscription is renewed.
+    </div>
+
+    <!-- ===== Section 2: Member Management ===== -->
+    <h2>2. Member Management</h2>
+    <p>
+      The Members page lets you view everyone in your organisation, check their account status, and manage their roles.
+    </p>
+    <ol>
+      <li>Navigate to <strong>Tenant &gt; Members</strong> from the sidebar or the dashboard quick actions.</li>
+      <li>
+        Review the member list. Each row displays:
+        <ul>
+          <li><strong>Name and Email</strong> &mdash; The member's display name and registered email address.</li>
+          <li><strong>Role</strong> &mdash; Either <em>Member</em> or <em>Admin</em>.</li>
+          <li><strong>Email Verified</strong> &mdash; Indicates whether the member has verified their email address.</li>
+          <li><strong>2FA Status</strong> &mdash; Shows whether the member has enabled two-factor authentication.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>To change a member's role:</strong>
+        <ol>
+          <li>Click the actions menu (three dots) on the member's row.</li>
+          <li>Select <strong>Change Role</strong>.</li>
+          <li>Choose the new role &mdash; <em>Member</em> or <em>Admin</em>.</li>
+          <li>Confirm the change. The member's permissions will update immediately.</li>
+        </ol>
+      </li>
+      <li>
+        <strong>To remove a member:</strong>
+        <ol>
+          <li>Click the actions menu on the member's row.</li>
+          <li>Select <strong>Remove Member</strong>.</li>
+          <li>Confirm the removal in the dialog. The member will lose access to the organisation immediately.</li>
+        </ol>
+      </li>
+    </ol>
+    <img src="images/admin-users-list.png" alt="Member management list showing names, emails, roles, email verification status, and 2FA status" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <div class="info-box">
+      <strong>Note</strong>
+      You cannot remove yourself from the organisation or change your own role. There must always be at least one Admin in the organisation.
+    </div>
+
+    <!-- ===== Section 3: Invitations ===== -->
+    <h2>3. Invitations</h2>
+    <p>
+      Invite new team members to join your organisation by sending email invitations. You can control what role they receive when they join.
+    </p>
+
+    <h3>3.1 Send a New Invitation</h3>
+    <ol>
+      <li>Navigate to <strong>Tenant &gt; Invitations</strong> (or click <strong>Invite Member</strong> from the Members page).</li>
+      <li>Enter the invitee's <strong>email address</strong> in the form field.</li>
+      <li>Select the <strong>role</strong> to assign &mdash; <em>Member</em> or <em>Admin</em>.</li>
+      <li>Click <strong>Send Invitation</strong>.</li>
+      <li>The invitee will receive an email with a link to accept the invitation and join your organisation.</li>
+    </ol>
+    <img src="images/admin-users-invite.png" alt="Send invitation form with email field and role selector" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <h3>3.2 View Pending Invitations</h3>
+    <ol>
+      <li>Below the invitation form, you will see a table of all invitations that have been sent.</li>
+      <li>
+        Each invitation shows:
+        <ul>
+          <li><strong>Email</strong> &mdash; The address the invitation was sent to.</li>
+          <li><strong>Role</strong> &mdash; The role assigned to the invitation.</li>
+          <li><strong>Status</strong> &mdash; The current state of the invitation.</li>
+          <li><strong>Sent Date</strong> &mdash; When the invitation was originally sent.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>3.3 Resend or Cancel an Invitation</h3>
+    <ol>
+      <li>Find the pending invitation in the list.</li>
+      <li>Click <strong>Resend</strong> to send another email to the invitee (useful if the original email was missed or expired).</li>
+      <li>Click <strong>Cancel</strong> to revoke the invitation. The invitation link will no longer work.</li>
+    </ol>
+
+    <h3>3.4 Invitation Lifecycle</h3>
+    <p>Every invitation follows a defined lifecycle:</p>
+    <ul>
+      <li><strong>PENDING</strong> &mdash; The invitation has been sent and is awaiting the recipient's response.</li>
+      <li><strong>ACCEPTED</strong> &mdash; The recipient clicked the link, registered (or logged in), and joined the organisation.</li>
+      <li><strong>EXPIRED</strong> &mdash; The invitation was not accepted within the validity period and has automatically expired.</li>
+      <li><strong>CANCELLED</strong> &mdash; An Admin manually cancelled the invitation before it was accepted.</li>
+    </ul>
+
+    <div class="info-box">
+      <strong>Tip</strong>
+      If an invitation has expired, you can simply send a new invitation to the same email address. You do not need to wait or take any additional steps.
+    </div>
+
+    <!-- ===== Section 4: Billing & Payments ===== -->
+    <h2>4. Billing &amp; Payments</h2>
+    <p>
+      The Billing page provides an overview of your organisation's financial details and gives you access to the Stripe billing portal for managing payment methods and invoices.
+    </p>
+    <ol>
+      <li>Navigate to <strong>Tenant &gt; Billing</strong> from the sidebar.</li>
+      <li>
+        Review the billing summary:
+        <ul>
+          <li><strong>Current Plan</strong> &mdash; The name of your active subscription plan.</li>
+          <li><strong>Billing Interval</strong> &mdash; Whether you are billed monthly or yearly.</li>
+          <li><strong>Next Billing Date</strong> &mdash; The date your subscription will next renew.</li>
+          <li><strong>Payment Status</strong> &mdash; Whether your last payment was successful.</li>
+        </ul>
+      </li>
+      <li>
+        Click <strong>Manage Billing</strong> to open the Stripe billing portal in a new tab. From there you can:
+        <ul>
+          <li>Update your payment method (credit card, bank account).</li>
+          <li>View and download past invoices.</li>
+          <li>Update your billing address.</li>
+        </ul>
+      </li>
+      <li>
+        Scroll down to view the <strong>Invoice History</strong> table, which lists recent charges including subscription payments and add-on purchases.
+      </li>
+    </ol>
+    <img src="images/admin-billing-summary.png" alt="Billing overview showing current plan, interval, next billing date, and a link to the Stripe portal" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ===== Section 5: Subscription Management ===== -->
+    <h2>5. Subscription Management</h2>
+    <p>
+      The Subscription page shows your current plan details and lets you purchase additional seats or certificate top-ups as your organisation grows.
+    </p>
+
+    <h3>5.1 View Current Plan</h3>
+    <ol>
+      <li>Navigate to <strong>Tenant &gt; Subscription</strong>.</li>
+      <li>
+        Review your plan details:
+        <ul>
+          <li><strong>Plan Name</strong> &mdash; The tier you are subscribed to.</li>
+          <li><strong>Seats</strong> &mdash; Number of seats used versus total available.</li>
+          <li><strong>Certificates</strong> &mdash; Number of certificates issued versus your quota.</li>
+          <li><strong>Status</strong> &mdash; Active, expired, or pending renewal.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>5.2 Purchase Additional Seats</h3>
+    <ol>
+      <li>In the Subscription page, locate the <strong>Add Seats</strong> section.</li>
+      <li>Enter the number of additional seats you need.</li>
+      <li>Click <strong>Purchase Seats</strong>.</li>
+      <li>You will be redirected to the Stripe checkout page to complete payment.</li>
+      <li>Once payment is confirmed, the new seats are immediately available and you can invite additional members.</li>
+    </ol>
+
+    <h3>5.3 Purchase Certificate Top-Ups</h3>
+    <ol>
+      <li>In the Subscription page, locate the <strong>Certificate Top-Up</strong> section.</li>
+      <li>Select the number of additional certificates you want to purchase.</li>
+      <li>Click <strong>Purchase Certificates</strong>.</li>
+      <li>Complete the Stripe checkout. The additional certificate quota is added to your plan immediately.</li>
+    </ol>
+
+    <h3>5.4 Renew an Expired Subscription</h3>
+    <ol>
+      <li>If your subscription has expired, a <strong>Renew Subscription</strong> button will appear on the Subscription page (and on the dashboard banner).</li>
+      <li>Click <strong>Renew Subscription</strong>.</li>
+      <li>Complete the Stripe checkout to reactivate your plan.</li>
+      <li>Once renewed, all features including certificate issuance will be restored.</li>
+    </ol>
+    <img src="images/admin-subscription.png" alt="Subscription page showing plan details, seat and certificate usage, and add-on purchase forms" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <div class="info-box">
+      <strong>Note</strong>
+      Add-on purchases (seats and certificate top-ups) are one-time charges that supplement your existing plan. They do not change your base subscription tier.
+    </div>
+
+    <!-- ===== Section 6: Branding & Customisation ===== -->
+    <h2>6. Branding &amp; Customisation</h2>
+    <p>
+      Personalise your organisation's certificates and verification pages with custom branding. Your branding settings affect the QR codes printed on certificates and the public verification page that recipients see.
+    </p>
+
+    <h3>6.1 Upload Organisation Logo</h3>
+    <ol>
+      <li>Navigate to <strong>Tenant &gt; Branding</strong>.</li>
+      <li>In the <strong>Organisation Logo</strong> section, click the upload area or drag and drop your logo file.</li>
+      <li>Supported formats include PNG, JPG, and SVG. For best results, use a square image with a transparent background.</li>
+      <li>Click <strong>Save</strong> to apply. The logo will appear in the centre of your branded QR codes.</li>
+    </ol>
+
+    <h3>6.2 Set QR Code Tint Colours</h3>
+    <ol>
+      <li>In the <strong>QR Code Colours</strong> section, you will see colour pickers for three properties:
+        <ul>
+          <li><strong>Elements Colour</strong> &mdash; The colour of the QR code dots and patterns.</li>
+          <li><strong>Text Colour</strong> &mdash; The colour of any text rendered around the QR code (e.g., margin text).</li>
+          <li><strong>Background Colour</strong> &mdash; The background colour behind the QR code.</li>
+        </ul>
+      </li>
+      <li>Click each colour picker to choose your desired colour, or enter a hex code directly.</li>
+      <li>A live preview of the QR code updates as you adjust colours.</li>
+      <li>Click <strong>Save</strong> to apply your colour settings to all future QR codes.</li>
+    </ol>
+
+    <h3>6.3 Select Verification Page Template</h3>
+    <ol>
+      <li>In the <strong>Verification Template</strong> section, browse the available templates.</li>
+      <li>Select a template that matches your organisation's style. Templates control the layout and appearance of the public verification page shown when someone scans a certificate's QR code.</li>
+      <li>Configure any template-specific options (e.g., header style, colour scheme).</li>
+      <li>Click <strong>Save</strong> to apply.</li>
+    </ol>
+
+    <h3>6.4 Upload Gradient / Custom Logo</h3>
+    <ol>
+      <li>If your chosen template supports a gradient or custom logo overlay, you will see an additional upload section.</li>
+      <li>Upload a gradient image or secondary logo to be displayed on the verification page.</li>
+      <li>Adjust positioning and sizing options as needed.</li>
+      <li>Click <strong>Save</strong> to apply.</li>
+    </ol>
+    <img src="images/admin-branding.png" alt="Branding page showing logo upload, QR code colour pickers, and template selection" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <div class="info-box">
+      <strong>Tip</strong>
+      Changes to branding settings apply to all <em>future</em> certificates. Existing certificates retain the branding that was active when they were issued. To update an existing certificate's QR code, you can regenerate it from the certificate detail page.
+    </div>
+
+    <!-- ===== Section 7: Certificate Management ===== -->
+    <h2>7. Certificate Management</h2>
+    <p>
+      As an Admin, you have all the same certificate management capabilities as regular Members &mdash; including creating, editing, minting, revoking, and verifying certificates. For a detailed walkthrough of these features, refer to the <a href="tutorial-user.html">User Tutorial</a>.
+    </p>
+
+    <h3>7.1 Standard Certificate Operations</h3>
+    <p>Admins can perform all standard certificate operations:</p>
+    <ul>
+      <li><strong>Create certificates</strong> &mdash; Issue individual certificates or batch-upload via CSV.</li>
+      <li><strong>Edit certificates</strong> &mdash; Update recipient details, metadata, and certificate content.</li>
+      <li><strong>Mint certificates</strong> &mdash; Publish certificates to the blockchain as ERC-721 NFTs.</li>
+      <li><strong>Revoke certificates</strong> &mdash; Mark certificates as revoked (recorded on-chain).</li>
+      <li><strong>Verify certificates</strong> &mdash; Check the on-chain status of any certificate.</li>
+      <li><strong>Download QR codes</strong> &mdash; Generate and download branded QR code images.</li>
+    </ul>
+
+    <h3>7.2 Advanced Blockchain Overrides (Admin Only)</h3>
+    <p>
+      Admins have access to advanced blockchain configuration options that are not available to regular Members. These settings allow fine-grained control over how certificates are minted on the blockchain.
+    </p>
+    <ol>
+      <li>Open a certificate's detail page or the certificate creation form.</li>
+      <li>
+        Look for the <strong>Advanced Blockchain Settings</strong> section (visible only to Admins):
+        <ul>
+          <li><strong>Contract Address</strong> &mdash; Override the default ERC-721 contract address used for minting. This is useful if your organisation operates multiple smart contracts or is migrating to a new contract.</li>
+          <li><strong>Network ID</strong> &mdash; Override the default blockchain network. This allows you to mint certificates on a different EVM-compatible chain (e.g., switching between testnet and mainnet, or between different chains).</li>
+        </ul>
+      </li>
+      <li>Enter the custom contract address and/or network ID.</li>
+      <li>Proceed with minting as normal. The certificate will be minted using the specified overrides instead of the tenant defaults.</li>
+    </ol>
+
+    <div class="info-box">
+      <strong>Warning</strong>
+      Blockchain overrides are an advanced feature. Entering an incorrect contract address or network ID can result in failed transactions or certificates that cannot be verified. Only modify these settings if you understand the implications. When in doubt, use the default values configured for your organisation.
+    </div>
+
+    <div class="info-box">
+      <strong>Next steps</strong>
+      <ul>
+        <li>Review the <a href="tutorial-user.html">User Tutorial</a> for detailed certificate management steps.</li>
+        <li>See <a href="batch-upload.html">Batch Upload</a> for issuing certificates in bulk via CSV.</li>
+        <li>If you are a platform Operator, see the <a href="tutorial-operator.html">Operator Tutorial</a>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">Sigalmark &copy; 2026. Secure blockchain-based certification technology.</div>
+</body>
+</html>

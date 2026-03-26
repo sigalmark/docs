@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User (Member) Tutorial - Sigalmark User Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Sigalmark Docs</a>
+      <div class="nav-links">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="batch-upload.html">Batch Upload</a>
+        <a href="verification.html">Verification</a>
+        <a href="faq.html">FAQ</a>
+        <a href="tutorial-user.html" class="active">User Tutorial</a>
+        <a href="tutorial-admin.html">Admin Tutorial</a>
+        <a href="tutorial-operator.html">Operator Tutorial</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>User (Member) Tutorial</h1>
+    <p class="subtitle">A comprehensive step-by-step guide for the Member role on the Sigalmark platform. This tutorial covers everything from creating your account to issuing, managing, and verifying blockchain-based certificates.</p>
+
+    <div class="info-box">
+      <strong>About the Member role</strong>
+      As a Member (USER), you can issue single and batch certificates, manage your issued certificates, view statistics, and verify certificates. You do not have access to organisation-level settings such as branding, billing, or member management &mdash; those are reserved for the Admin role.
+    </div>
+
+    <!-- ================================================================== -->
+    <h2>1. Registration &amp; Login</h2>
+    <p>Before you can use Sigalmark, you need an account. This section walks you through registering, verifying your email, logging in, and recovering a forgotten password.</p>
+
+    <h3>1.1 Register a New Account</h3>
+    <ol>
+      <li>Navigate to the Sigalmark platform in your web browser.</li>
+      <li>Click the <strong>Register</strong> link on the login page to open the registration form.</li>
+      <li>Fill in the required fields:
+        <ul>
+          <li><strong>First Name</strong> and <strong>Last Name</strong></li>
+          <li><strong>Email Address</strong> &mdash; use a valid email you have access to, as you will need to verify it.</li>
+          <li><strong>Password</strong> &mdash; choose a strong password (minimum 8 characters, with a mix of letters, numbers, and symbols recommended).</li>
+          <li><strong>Confirm Password</strong> &mdash; re-enter the same password to confirm.</li>
+        </ul>
+      </li>
+      <li>Click <strong>Register</strong> to submit the form.</li>
+      <li>Check your email inbox for a verification message from Sigalmark. Click the verification link in the email to activate your account.</li>
+    </ol>
+    <img src="images/user-register.png" alt="Registration form filled with user details" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <div class="info-box">
+      <strong>Note</strong>
+      If you do not receive the verification email within a few minutes, check your spam or junk folder. You cannot log in until your email is verified.
+    </div>
+
+    <h3>1.2 Log In to Your Account</h3>
+    <ol>
+      <li>Go to the Sigalmark login page.</li>
+      <li>Enter your <strong>Email Address</strong> and <strong>Password</strong>.</li>
+      <li>Click <strong>Login</strong>.</li>
+      <li>If you have enabled two-factor authentication (2FA), you will be prompted to enter the 6-digit code from your authenticator app. Enter the code and click <strong>Verify</strong>.</li>
+      <li>After successful authentication, you will be redirected to the Certificates page.</li>
+    </ol>
+    <img src="images/user-login.png" alt="Login page with email and password fields" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <h3>1.3 Forgot Password</h3>
+    <p>If you have forgotten your password, you can reset it via email:</p>
+    <ol>
+      <li>On the login page, click the <strong>Forgot password?</strong> link.</li>
+      <li>Enter the email address associated with your account.</li>
+      <li>Click <strong>Send Reset Link</strong>.</li>
+      <li>Check your email for a password reset message. Click the link in the email.</li>
+    </ol>
+    <img src="images/user-forgot-password.png" alt="Forgot password form with email field" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <h3>1.4 Reset Your Password</h3>
+    <ol>
+      <li>After clicking the reset link in the email, you will be taken to the password reset page.</li>
+      <li>Enter your <strong>New Password</strong> and confirm it in the <strong>Confirm Password</strong> field.</li>
+      <li>Click <strong>Reset Password</strong>.</li>
+      <li>Once the password has been reset successfully, you will be redirected to the login page. Log in with your new password.</li>
+    </ol>
+    <img src="images/user-reset-password.png" alt="Reset password form with new password fields" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ================================================================== -->
+    <h2>2. Profile Management</h2>
+    <p>Your profile contains your personal information and security settings. You can update your details and enable two-factor authentication from the Profile page.</p>
+
+    <h3>2.1 View and Edit Your Profile</h3>
+    <ol>
+      <li>Click your name or avatar in the top-right corner of the navigation bar, then select <strong>Profile</strong> from the dropdown menu.</li>
+      <li>On the Profile page, you can view and edit the following fields:
+        <ul>
+          <li><strong>First Name</strong></li>
+          <li><strong>Last Name</strong></li>
+          <li><strong>Phone Number</strong></li>
+          <li><strong>Job Title</strong></li>
+        </ul>
+      </li>
+      <li>Make your changes and click <strong>Save</strong> to update your profile.</li>
+    </ol>
+    <img src="images/user-profile.png" alt="Profile page showing editable user details" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <h3>2.2 Enable Two-Factor Authentication (2FA)</h3>
+    <p>Two-factor authentication adds an extra layer of security to your account. When enabled, you will need both your password and a time-based code from an authenticator app to log in.</p>
+    <ol>
+      <li>On the Profile page, locate the <strong>Two-Factor Authentication</strong> section.</li>
+      <li>Click <strong>Enable 2FA</strong>.</li>
+      <li>A QR code will appear on screen. Open your authenticator app (such as Google Authenticator, Authy, or Microsoft Authenticator) and scan the QR code to add the Sigalmark account.</li>
+      <li>Your authenticator app will now display a 6-digit code that refreshes every 30 seconds.</li>
+      <li>Enter the current 6-digit code from your authenticator app into the verification field on the Sigalmark page.</li>
+      <li>Click <strong>Verify</strong> to confirm and activate 2FA.</li>
+      <li>You will see a confirmation message indicating that 2FA has been enabled successfully.</li>
+    </ol>
+    <img src="images/user-2fa-setup.png" alt="2FA setup showing QR code for authenticator app" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <div class="info-box">
+      <strong>Important</strong>
+      Store a backup of your authenticator app data. If you lose access to your authenticator app, you will need to contact your organisation's Admin to regain access to your account.
+    </div>
+
+    <h3>2.3 Disable Two-Factor Authentication</h3>
+    <ol>
+      <li>On the Profile page, locate the <strong>Two-Factor Authentication</strong> section. It will show that 2FA is currently enabled.</li>
+      <li>Click <strong>Disable 2FA</strong>.</li>
+      <li>You may be asked to enter your current 2FA code to confirm the action.</li>
+      <li>Once confirmed, 2FA will be turned off for your account. You will only need your email and password to log in going forward.</li>
+    </ol>
+
+    <!-- ================================================================== -->
+    <h2>3. Issuing Certificates</h2>
+    <p>As a Member, you can issue digital certificates that are minted as ERC-721 NFTs on the blockchain. Certificates can be created one at a time or in bulk using a CSV file.</p>
+
+    <h3>3.1 Create a Single Certificate</h3>
+    <ol>
+      <li>Navigate to the <strong>Certificates</strong> page from the main navigation.</li>
+      <li>Click the <strong>Create</strong> tab to open the certificate creation form.</li>
+    </ol>
+    <img src="images/user-cert-create-tab.png" alt="Create certificate tab showing empty form" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+    <ol start="3">
+      <li>Fill in the certificate details:
+        <ul>
+          <li><strong>Recipient Name</strong> (required) &mdash; the full name of the person receiving the certificate.</li>
+          <li><strong>Competency / Title</strong> (required) &mdash; the skill, qualification, or achievement being certified.</li>
+          <li><strong>Expiry Date</strong> (optional) &mdash; if the certificate has a validity period, set the date it expires. Leave blank for certificates that do not expire.</li>
+          <li><strong>Recipient Email</strong> (optional) &mdash; the email address of the recipient. If provided, they will receive an email notification with their certificate.</li>
+          <li><strong>Image</strong> (optional) &mdash; upload an image to be associated with the certificate (e.g., a photo of the recipient or a badge graphic).</li>
+        </ul>
+      </li>
+      <li>Review the information you have entered.</li>
+      <li>Click <strong>Add Certificate</strong> to submit. The certificate will be created and queued for minting on the blockchain.</li>
+    </ol>
+    <img src="images/user-cert-create-filled.png" alt="Create certificate form filled with recipient details" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <div class="info-box">
+      <strong>Note</strong>
+      Once a certificate is minted on the blockchain, its core data (recipient name and competency) cannot be changed. Double-check all fields before submitting.
+    </div>
+
+    <h3>3.2 Batch CSV Upload</h3>
+    <p>If you need to issue multiple certificates at once, you can upload a CSV file containing all the recipient data.</p>
+    <ol>
+      <li>Navigate to the <strong>Certificates</strong> page and open the <strong>Batch Upload</strong> section.</li>
+      <li>Click <strong>Download Template</strong> to get a pre-formatted CSV template file. Open it in a spreadsheet application or text editor.</li>
+      <li>Fill in the CSV file with your certificate data. The CSV headers are:
+        <ul>
+          <li><strong>name</strong> (required) &mdash; recipient's full name.</li>
+          <li><strong>competency</strong> (required) &mdash; the skill or qualification.</li>
+          <li><strong>expiresAt</strong> (optional) &mdash; expiry date. Use the format <code>YYYY-MM-DD</code> (e.g., <code>2027-06-15</code>). Leave blank if the certificate does not expire.</li>
+          <li><strong>email</strong> (optional) &mdash; recipient's email address for notifications.</li>
+          <li><strong>imageURI</strong> (optional) &mdash; a publicly accessible URL to an image for the certificate. The URL must point directly to an image file (e.g., ending in <code>.png</code>, <code>.jpg</code>, or <code>.jpeg</code>). If left blank, no image will be attached.</li>
+        </ul>
+      </li>
+      <li>Save the CSV file.</li>
+      <li>Back on the Batch Upload section, click <strong>Upload CSV</strong> (or drag and drop the file) to upload your prepared file.</li>
+      <li>Sigalmark will parse the CSV and display a preview of the certificates to be created. Review the preview carefully to check for any errors or missing data.</li>
+      <li>If everything looks correct, click <strong>Mint Batch</strong> to issue all the certificates. They will be minted on the blockchain in a single batch operation.</li>
+    </ol>
+    <img src="images/user-cert-batch-section.png" alt="Batch upload section with CSV information expanded" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <div class="info-box">
+      <strong>CSV Tips</strong>
+      <ul style="margin:8px 0 0 0;padding-left:20px;">
+        <li>Date format must be <code>YYYY-MM-DD</code>. Other formats (e.g., DD/MM/YYYY) will be rejected.</li>
+        <li>The <code>imageURI</code> field must be a full URL starting with <code>https://</code>. Relative paths and local file paths are not supported.</li>
+        <li>Click the info button next to the upload area for a quick reference on date formatting and imageURI rules.</li>
+        <li>Ensure your CSV is saved with UTF-8 encoding to avoid character issues.</li>
+      </ul>
+    </div>
+
+    <!-- ================================================================== -->
+    <h2>4. Managing Certificates</h2>
+    <p>After issuing certificates, you can view, search, and manage them from the certificate list.</p>
+
+    <h3>4.1 Certificate List View</h3>
+    <ol>
+      <li>Navigate to the <strong>Certificates</strong> page. The default view shows the <strong>List</strong> tab with all certificates issued by your organisation.</li>
+      <li>Use the <strong>search bar</strong> to find certificates by recipient name or competency.</li>
+      <li>Use <strong>pagination</strong> controls at the bottom of the list to navigate through large numbers of certificates.</li>
+      <li>Each certificate in the list shows its status:
+        <ul>
+          <li><strong>Active</strong> &mdash; the certificate is valid and has been minted on-chain.</li>
+          <li><strong>Pending</strong> &mdash; the certificate is being processed or awaiting minting.</li>
+          <li><strong>Expired</strong> &mdash; the certificate has passed its expiry date.</li>
+          <li><strong>Revoked</strong> &mdash; the certificate has been revoked and is no longer valid.</li>
+        </ul>
+      </li>
+    </ol>
+    <img src="images/user-cert-list.png" alt="Certificate list view showing certificates with statuses" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <h3>4.2 Certificate Actions</h3>
+    <p>From the certificate list, you can perform several actions on individual certificates:</p>
+
+    <h4>Revoke a Certificate</h4>
+    <ol>
+      <li>Find the certificate you wish to revoke in the list.</li>
+      <li>Click the actions menu (three dots or the <strong>Actions</strong> button) on that certificate's row.</li>
+      <li>Select <strong>Revoke</strong>.</li>
+      <li>Confirm the revocation when prompted. This action is recorded on the blockchain and cannot be undone. The certificate's status will change to <strong>Revoked</strong>.</li>
+    </ol>
+
+    <h4>Extend Expiry Date</h4>
+    <ol>
+      <li>Find the certificate whose expiry you want to extend.</li>
+      <li>Click the actions menu and select <strong>Extend Expiry</strong>.</li>
+      <li>Choose a new expiry date (must be later than the current expiry date).</li>
+      <li>Confirm the change. The updated expiry date will be reflected on-chain.</li>
+    </ol>
+
+    <h4>Email Certificate to Recipient</h4>
+    <ol>
+      <li>Click the actions menu for the desired certificate.</li>
+      <li>Select <strong>Email to Recipient</strong>.</li>
+      <li>If the certificate has a recipient email on file, the system will send an email containing the certificate details and a verification link. If no email is on file, you will be prompted to enter one.</li>
+    </ol>
+
+    <h4>Export Certificates as CSV</h4>
+    <ol>
+      <li>From the certificate list page, click the <strong>Export CSV</strong> button.</li>
+      <li>A CSV file containing all your certificates (with their details and statuses) will be downloaded to your computer.</li>
+    </ol>
+
+    <h4>Bulk Renew Certificates</h4>
+    <ol>
+      <li>Select multiple certificates using the checkboxes in the list view.</li>
+      <li>Click the <strong>Bulk Renew</strong> button that appears when certificates are selected.</li>
+      <li>Choose a new expiry date to apply to all selected certificates.</li>
+      <li>Confirm the renewal. All selected certificates will have their expiry dates updated.</li>
+    </ol>
+
+    <!-- ================================================================== -->
+    <h2>5. Viewing Statistics</h2>
+    <p>The statistics dashboard provides an overview of your certificate activity, including how many certificates have been issued and how often they have been verified.</p>
+    <ol>
+      <li>Navigate to the <strong>Certificates</strong> page and click the <strong>Stats</strong> tab.</li>
+      <li>The dashboard displays key metrics including:
+        <ul>
+          <li><strong>Total Certificates Issued</strong> &mdash; the number of certificates your organisation has created.</li>
+          <li><strong>Verification Counts</strong> &mdash; how many times your certificates have been verified (scanned or looked up).</li>
+          <li><strong>Active vs. Expired vs. Revoked</strong> &mdash; a breakdown of certificate statuses.</li>
+        </ul>
+      </li>
+      <li>Use this information to track adoption and engagement with your issued certificates.</li>
+    </ol>
+    <img src="images/user-cert-stats.png" alt="Statistics dashboard showing certificate verification counts" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ================================================================== -->
+    <h2>6. Verifying Certificates</h2>
+    <p>Sigalmark provides multiple ways to verify the authenticity of a certificate. Verification reads data directly from the blockchain, ensuring that the certificate is genuine and has not been tampered with.</p>
+
+    <h3>6.1 Verify via QR Code</h3>
+    <ol>
+      <li>Navigate to the <strong>Verify</strong> page from the main navigation (this page is publicly accessible and does not require login).</li>
+      <li>You have two options for QR code verification:
+        <ul>
+          <li><strong>Camera Scan</strong> &mdash; click the camera icon or <strong>Scan QR Code</strong> button, then point your device's camera at the certificate's QR code.</li>
+          <li><strong>Upload Image</strong> &mdash; if you have a screenshot or photo of the QR code, click <strong>Upload</strong> and select the image file from your device.</li>
+        </ul>
+      </li>
+      <li>The system will automatically decode the QR code and retrieve the certificate details from the blockchain.</li>
+    </ol>
+    <img src="images/user-verify-page.png" alt="Verification page with scan and input options" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <h3>6.2 Verify via URL</h3>
+    <ol>
+      <li>On the Verify page, locate the URL input field.</li>
+      <li>Paste the full certificate verification URL (e.g., a short link from <code>sm1.it</code> or a full Sigalmark verification URL).</li>
+      <li>Click <strong>Verify</strong>. The system will resolve the URL and fetch the certificate data from the blockchain.</li>
+    </ol>
+
+    <h3>6.3 Verify via Manual Input</h3>
+    <p>If you have the raw blockchain details of a certificate, you can verify it manually:</p>
+    <ol>
+      <li>On the Verify page, switch to the <strong>Manual Input</strong> section.</li>
+      <li>Enter the following three fields:
+        <ul>
+          <li><strong>Contract Address</strong> &mdash; the Ethereum contract address of the issuing organisation (e.g., <code>0x1234...abcd</code>).</li>
+          <li><strong>Token ID</strong> &mdash; the unique token identifier of the certificate on the blockchain.</li>
+          <li><strong>Network ID</strong> &mdash; the blockchain network ID where the certificate was minted (e.g., <code>1</code> for Ethereum Mainnet, <code>137</code> for Polygon).</li>
+        </ul>
+      </li>
+      <li>Click <strong>Verify</strong> to look up the certificate on-chain.</li>
+    </ol>
+    <img src="images/user-verify-manual.png" alt="Manual verification form with contract address, token ID, and network ID filled in" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <h3>6.4 Reading Verification Results</h3>
+    <ol>
+      <li>After a successful verification, the results page will display the certificate details:
+        <ul>
+          <li><strong>Recipient Name</strong> &mdash; who the certificate was issued to.</li>
+          <li><strong>Competency</strong> &mdash; the certified skill or qualification.</li>
+          <li><strong>Issuing Organisation</strong> &mdash; the name and branding of the organisation that issued it.</li>
+          <li><strong>Issue Date</strong> &mdash; when the certificate was minted.</li>
+          <li><strong>Expiry Date</strong> &mdash; when the certificate expires (if applicable).</li>
+          <li><strong>Status</strong> &mdash; whether the certificate is Active, Expired, or Revoked.</li>
+        </ul>
+      </li>
+      <li>A clear <strong>"Certificate validated"</strong> message confirms the certificate is authentic and recorded on the blockchain.</li>
+      <li>If the certificate has been revoked or cannot be found, an appropriate warning or error message will be displayed instead.</li>
+    </ol>
+    <img src="images/user-verify-result.png" alt="Verification result showing Certificate validated message" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ================================================================== -->
+    <h2>7. Mobile App</h2>
+    <p>Sigalmark also offers a mobile application for verifying certificates on the go. The mobile app is designed for quick, camera-based verification and includes visual tamper detection.</p>
+
+    <h3>7.1 Overview</h3>
+    <ol>
+      <li><strong>Download and install</strong> the Sigalmark mobile app from your device's app store (available for both Android and iOS).</li>
+      <li><strong>Open the app</strong> and grant camera permissions when prompted. The app opens directly to the QR scanner view.</li>
+      <li><strong>Point your camera</strong> at a Sigalmark certificate's QR code. The app will automatically detect and scan the code.</li>
+      <li>The app decodes the QR code, retrieves the certificate data from the blockchain, and displays the verification result on screen.</li>
+      <li>The result screen shows the same information as the web verification page: recipient name, competency, issuing organisation, dates, and validation status.</li>
+      <li>The app includes <strong>visual tamper detection</strong>, which analyses the QR code for signs of alteration or forgery. If the QR code appears to have been modified, a warning will be displayed.</li>
+    </ol>
+
+    <div class="info-box">
+      <strong>Tip</strong>
+      The mobile app does not require you to log in. It is designed purely for verification and can be used by anyone &mdash; certificate recipients, employers, auditors, or any third party who needs to confirm a certificate's authenticity.
+    </div>
+
+    <h3>7.2 When to Use the Mobile App</h3>
+    <ul>
+      <li><strong>In-person verification</strong> &mdash; when someone presents a printed certificate and you need to quickly confirm its validity.</li>
+      <li><strong>Events and conferences</strong> &mdash; for checking attendee credentials on site.</li>
+      <li><strong>Audits</strong> &mdash; for bulk verification of physical certificates.</li>
+    </ul>
+
+    <!-- ================================================================== -->
+    <div class="info-box">
+      <strong>Next steps</strong>
+      <ul style="margin:8px 0 0 0;padding-left:20px;">
+        <li>For more detail on certificate fields and options, see the <a href="certificates.html">Certificates</a> guide.</li>
+        <li>For advanced batch upload guidance, see the <a href="batch-upload.html">Batch Upload</a> guide.</li>
+        <li>For common questions, visit the <a href="faq.html">FAQ</a>.</li>
+        <li>If you are an Admin, see the <a href="tutorial-admin.html">Admin Tutorial</a> for organisation management features.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">Sigalmark &copy; 2026. Secure blockchain-based certification technology.</div>
+</body>
+</html>

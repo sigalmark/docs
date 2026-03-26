@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operator Tutorial - Sigalmark User Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Sigalmark Docs</a>
+      <div class="nav-links">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="batch-upload.html">Batch Upload</a>
+        <a href="verification.html">Verification</a>
+        <a href="faq.html">FAQ</a>
+        <a href="tutorial-user.html">User Tutorial</a>
+        <a href="tutorial-admin.html">Admin Tutorial</a>
+        <a href="tutorial-operator.html" class="active">Operator Tutorial</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Operator (Superadmin) Tutorial</h1>
+    <p class="subtitle">A comprehensive guide to platform-wide administration for Operators. Operators have the highest level of access and can manage all tenants, users, subscriptions, wallets, domains, and contract deployments across the entire Sigalmark platform.</p>
+
+    <div class="info-box">
+      <strong>Who is an Operator?</strong>
+      An Operator (also called Superadmin or Platform Admin) has unrestricted access to the entire Sigalmark platform. This includes all Admin and User capabilities, plus exclusive access to the platform-wide admin dashboard where you manage tenants, subscription plans, master wallets, shortener domains, and contract deployments.
+    </div>
+
+    <!-- ===== SECTION 1: Platform Users Management ===== -->
+    <h2>1. Platform Users Management</h2>
+    <p>The Platform Users page gives you a complete overview of every user registered on the Sigalmark platform, regardless of which tenant they belong to.</p>
+
+    <h3>Viewing All Platform Users</h3>
+    <ol>
+      <li>Navigate to the <strong>Admin</strong> section in the main sidebar.</li>
+      <li>Click <strong>Users</strong> to open the platform users list.</li>
+      <li>You will see a table displaying all registered users with the following columns:
+        <ul>
+          <li><strong>Email</strong> &mdash; The user's email address.</li>
+          <li><strong>Role</strong> &mdash; Their platform-level role (USER, ADMIN, or OPERATOR).</li>
+          <li><strong>Membership Count</strong> &mdash; The number of tenants this user belongs to.</li>
+          <li><strong>2FA Status</strong> &mdash; Whether two-factor authentication is enabled.</li>
+          <li><strong>Email Verified</strong> &mdash; Whether the user has verified their email address.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Searching for Users</h3>
+    <ol>
+      <li>Use the search bar at the top of the users list.</li>
+      <li>Enter a user's <strong>email address</strong> or <strong>user ID</strong> to filter the list.</li>
+      <li>Results will update in real time as you type.</li>
+    </ol>
+
+    <h3>Inspecting Individual User Details</h3>
+    <ol>
+      <li>Click on any user row in the table to open their detail view.</li>
+      <li>Review the user's full profile, including all tenant memberships, roles within each tenant, account creation date, and security settings.</li>
+    </ol>
+
+    <img src="images/operator-admin-users.png" alt="Platform users list showing email, role, membership count, 2FA and email verification status for all users" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ===== SECTION 2: Tenant Management ===== -->
+    <h2>2. Tenant Management</h2>
+    <p>Tenant management is the core of the Operator dashboard. From here you configure each organisation's blockchain settings, subscription, domain, and smart contract deployment.</p>
+
+    <h3>Viewing All Tenants</h3>
+    <ol>
+      <li>Navigate to <strong>Admin &gt; Tenants</strong> in the sidebar.</li>
+      <li>The tenant list displays all registered organisations with summary information:
+        <ul>
+          <li><strong>Subscription Plan</strong> &mdash; The plan currently assigned to the tenant.</li>
+          <li><strong>Blockchain Chain</strong> &mdash; The EVM chain the tenant operates on (e.g. Polygon, Ethereum, Base).</li>
+          <li><strong>Contract Status</strong> &mdash; Whether a smart contract has been deployed for this tenant.</li>
+          <li><strong>User Count</strong> &mdash; Number of members in the tenant.</li>
+          <li><strong>Certificate Count</strong> &mdash; Number of certificates issued by the tenant.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Viewing Tenant Details</h3>
+    <ol>
+      <li>Click on any tenant row to open the <strong>details panel</strong> on the right side of the screen.</li>
+      <li>The details panel shows the full configuration for the selected tenant, including blockchain settings, subscription information, member list, and available actions.</li>
+    </ol>
+
+    <h3>Assigning a Blockchain Chain and RPC URL</h3>
+    <ol>
+      <li>Select a tenant from the list to open its details panel.</li>
+      <li>In the <strong>Blockchain Configuration</strong> section, click <strong>Assign Chain</strong> (or edit the existing assignment).</li>
+      <li>Select the desired <strong>blockchain network</strong> from the dropdown (e.g. Polygon, Ethereum, Base, Avalanche).</li>
+      <li>Enter the <strong>RPC URL</strong> for the selected chain. This is the endpoint used to interact with the blockchain.</li>
+      <li>Click <strong>Save</strong> to apply the chain configuration.</li>
+    </ol>
+
+    <div class="info-box">
+      <strong>Important:</strong> A blockchain chain and RPC URL must be assigned before a smart contract can be deployed for the tenant.
+    </div>
+
+    <h3>Deploying a Smart Contract</h3>
+    <ol>
+      <li>Ensure the tenant has a blockchain chain and RPC URL assigned (see above).</li>
+      <li>Ensure a <strong>master wallet</strong> exists for the assigned chain (see Section 4).</li>
+      <li>In the tenant details panel, locate the <strong>Contract</strong> section.</li>
+      <li>Click <strong>Deploy Contract</strong>.</li>
+      <li>The platform will deploy an ERC-721 smart contract to the assigned blockchain using the master wallet for gas funding.</li>
+      <li>Once deployment completes, the contract address will appear in the tenant details. The tenant can now mint certificates as NFTs.</li>
+    </ol>
+
+    <div class="warning-box">
+      <strong>Warning:</strong> Contract deployment is a blockchain transaction that costs gas. Ensure the master wallet for the target chain has sufficient funds before deploying.
+    </div>
+
+    <h3>Assigning a Subscription Plan</h3>
+    <ol>
+      <li>In the tenant details panel, locate the <strong>Subscription</strong> section.</li>
+      <li>Click <strong>Assign Plan</strong> (or edit the current plan).</li>
+      <li>Select a <strong>subscription plan</strong> from the dropdown. Plans are created in the Subscription Plan Management section (see Section 3).</li>
+      <li>Set the <strong>expiry date</strong> for the subscription.</li>
+      <li>Click <strong>Save</strong> to assign the plan to the tenant.</li>
+    </ol>
+
+    <h3>Adding Seat and Certificate Add-Ons</h3>
+    <ol>
+      <li>In the tenant details panel, locate the <strong>Add-Ons</strong> section.</li>
+      <li>To add extra seats, enter the number of additional seats and click <strong>Add Seats</strong>.</li>
+      <li>To add extra certificates, enter the number of additional certificates and click <strong>Add Certificates</strong>.</li>
+      <li>Add-ons extend the tenant's limits beyond what their base subscription plan includes.</li>
+    </ol>
+
+    <h3>Assigning a Shortener Domain</h3>
+    <ol>
+      <li>In the tenant details panel, locate the <strong>Shortener Domain</strong> section.</li>
+      <li>Select a domain from the dropdown. Domains are configured in the Shortener Domain Management section (see Section 5).</li>
+      <li>Click <strong>Save</strong>. The tenant's QR codes will now use this domain for their short verification URLs.</li>
+    </ol>
+
+    <h3>Switching Billing Provider</h3>
+    <ol>
+      <li>In the tenant details panel, locate the <strong>Billing</strong> section.</li>
+      <li>Select the desired billing provider (e.g. Stripe, manual billing).</li>
+      <li>Click <strong>Save</strong> to update the billing configuration for the tenant.</li>
+    </ol>
+
+    <h3>Viewing Tenant Members</h3>
+    <ol>
+      <li>In the tenant details panel, scroll down to the <strong>Members</strong> section.</li>
+      <li>You will see a list of all users who belong to this tenant, along with their roles (USER, ADMIN) within the tenant.</li>
+    </ol>
+
+    <img src="images/operator-admin-tenants.png" alt="Tenant management page showing tenant list with details panel open for a selected tenant" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ===== SECTION 3: Subscription Plan Management ===== -->
+    <h2>3. Subscription Plan Management</h2>
+    <p>Manage the subscription plans available on the platform. Plans define the pricing, limits, and features available to each tenant.</p>
+
+    <h3>Viewing All Subscription Plans</h3>
+    <ol>
+      <li>Navigate to <strong>Admin &gt; Subscriptions</strong> in the sidebar.</li>
+      <li>The subscription plans list shows all configured plans with the following details:
+        <ul>
+          <li><strong>Code</strong> &mdash; A unique identifier for the plan (e.g. <code>starter</code>, <code>professional</code>, <code>enterprise</code>).</li>
+          <li><strong>Name</strong> &mdash; The display name shown to tenants.</li>
+          <li><strong>Currency</strong> &mdash; The billing currency (e.g. USD, EUR, GBP).</li>
+          <li><strong>Pricing Tiers</strong> &mdash; Monthly and annual pricing amounts.</li>
+          <li><strong>Seat Limits</strong> &mdash; Included seats and maximum allowed seats.</li>
+          <li><strong>Certificate Limits</strong> &mdash; Included certificates and maximum allowed certificates.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Creating a New Subscription Plan</h3>
+    <ol>
+      <li>Click the <strong>Create Plan</strong> button at the top of the subscriptions page.</li>
+      <li>Fill in the following required fields:
+        <ul>
+          <li><strong>Code</strong> &mdash; A unique machine-readable identifier (e.g. <code>pro-tier</code>). Cannot be changed after creation.</li>
+          <li><strong>Name</strong> &mdash; The human-readable plan name displayed to tenants.</li>
+          <li><strong>Currency</strong> &mdash; Select the billing currency.</li>
+        </ul>
+      </li>
+      <li>Configure <strong>pricing</strong>:
+        <ul>
+          <li><strong>Monthly Price</strong> &mdash; The price charged per month.</li>
+          <li><strong>Annual Price</strong> &mdash; The price charged per year (typically discounted).</li>
+        </ul>
+      </li>
+      <li>Set <strong>seat limits</strong>:
+        <ul>
+          <li><strong>Included Seats</strong> &mdash; Number of user seats included in the base plan price.</li>
+          <li><strong>Maximum Seats</strong> &mdash; The hard cap on the total number of seats (including add-ons).</li>
+          <li><strong>Additional Seat Price</strong> &mdash; Cost per extra seat beyond the included amount.</li>
+        </ul>
+      </li>
+      <li>Set <strong>certificate limits</strong>:
+        <ul>
+          <li><strong>Included Certificates</strong> &mdash; Number of certificates included in the base plan price.</li>
+          <li><strong>Maximum Certificates</strong> &mdash; The hard cap on total certificates (including add-ons).</li>
+          <li><strong>Additional Certificate Price</strong> &mdash; Cost per extra certificate beyond the included amount.</li>
+        </ul>
+      </li>
+      <li>Optionally configure <strong>Stripe integration</strong>:
+        <ul>
+          <li><strong>Stripe Monthly Price ID</strong> &mdash; The Stripe Price ID for the monthly billing cycle.</li>
+          <li><strong>Stripe Annual Price ID</strong> &mdash; The Stripe Price ID for the annual billing cycle.</li>
+        </ul>
+      </li>
+      <li>Set the <strong>Visibility</strong> toggle to control whether tenants can see and select this plan.</li>
+      <li>Click <strong>Save</strong> to create the plan.</li>
+    </ol>
+
+    <h3>Editing an Existing Plan</h3>
+    <ol>
+      <li>Click on a plan in the list to open it for editing.</li>
+      <li>Modify any of the fields described above (note: the plan <strong>Code</strong> cannot be changed).</li>
+      <li>Click <strong>Save</strong> to apply changes.</li>
+    </ol>
+
+    <h3>Deleting a Plan</h3>
+    <ol>
+      <li>Click the <strong>Delete</strong> button on the plan you wish to remove.</li>
+      <li>Confirm the deletion in the confirmation dialog.</li>
+    </ol>
+
+    <div class="warning-box">
+      <strong>Caution:</strong> Deleting a plan that is currently assigned to tenants may affect those tenants' billing and access. Consider toggling visibility off instead of deleting.
+    </div>
+
+    <h3>Toggling Plan Visibility</h3>
+    <ol>
+      <li>In the plan editing view, locate the <strong>Visibility</strong> toggle.</li>
+      <li>Toggle it <strong>on</strong> to make the plan visible and selectable by tenants.</li>
+      <li>Toggle it <strong>off</strong> to hide the plan from tenants (existing assignments are not affected).</li>
+    </ol>
+
+    <img src="images/operator-subscriptions-list.png" alt="Subscription plans list showing plan codes, names, currency, pricing tiers, and seat/certificate limits" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ===== SECTION 4: Master Wallet Management ===== -->
+    <h2>4. Master Wallet Management</h2>
+    <p>Master wallets are the funding wallets used by the platform to deploy smart contracts and execute blockchain transactions on behalf of tenants. Each supported blockchain network requires its own master wallet.</p>
+
+    <h3>Viewing All Master Wallets</h3>
+    <ol>
+      <li>Navigate to <strong>Admin &gt; Master Wallets</strong> in the sidebar.</li>
+      <li>The wallets list displays all configured master wallets with:
+        <ul>
+          <li><strong>Chain</strong> &mdash; The blockchain network (e.g. Polygon, Ethereum, Base).</li>
+          <li><strong>Address</strong> &mdash; The wallet's public address on the blockchain.</li>
+          <li><strong>Label</strong> &mdash; A descriptive label for easy identification.</li>
+          <li><strong>RPC URL</strong> &mdash; The RPC endpoint used for blockchain communication.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Creating or Updating a Master Wallet</h3>
+    <ol>
+      <li>Click <strong>Create Wallet</strong> (or select an existing wallet to edit).</li>
+      <li>Fill in the following fields:
+        <ul>
+          <li><strong>Chain</strong> &mdash; Select the blockchain network from the dropdown.</li>
+          <li><strong>Label</strong> &mdash; Enter a descriptive name (e.g. "Polygon Production Wallet").</li>
+          <li><strong>RPC URL</strong> &mdash; Enter the RPC endpoint URL for the selected chain.</li>
+          <li><strong>Private Key</strong> &mdash; Enter the wallet's private key. This will be encrypted with AES-256-GCM and stored securely.</li>
+        </ul>
+      </li>
+      <li>Click <strong>Save</strong> to create or update the wallet.</li>
+    </ol>
+
+    <div class="warning-box">
+      <strong>Security Notice:</strong> Private keys are encrypted at rest using AES-256-GCM. Never share private keys outside the platform. Ensure that master wallets are funded with enough native tokens (e.g. MATIC, ETH) to cover gas costs for contract deployments.
+    </div>
+
+    <div class="info-box">
+      <strong>Funding Wallets:</strong> Master wallets must have a sufficient balance of the native chain token to fund smart contract deployment transactions. Monitor wallet balances regularly and top up as needed using an external wallet or exchange.
+    </div>
+
+    <img src="images/operator-master-wallets.png" alt="Master wallets list showing chain, address, label, and RPC URL for each configured wallet" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ===== SECTION 5: Shortener Domain Management ===== -->
+    <h2>5. Shortener Domain Management</h2>
+    <p>Shortener domains are used to generate short verification URLs for QR codes. Each tenant can be assigned a domain, and the generated short links point to the shortener service which redirects to the full certificate verification page.</p>
+
+    <h3>Viewing All Shortener Domains</h3>
+    <ol>
+      <li>Navigate to <strong>Admin &gt; Shortener Domains</strong> in the sidebar.</li>
+      <li>The domains list shows all configured shortener domains with:
+        <ul>
+          <li><strong>Label</strong> &mdash; A descriptive name for the domain.</li>
+          <li><strong>Domain</strong> &mdash; The short domain URL (e.g. <code>sm1.it</code>).</li>
+          <li><strong>API URL</strong> &mdash; The backend API endpoint for the shortener service.</li>
+          <li><strong>Default</strong> &mdash; Whether this domain is the default for new tenants.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Creating a New Shortener Domain</h3>
+    <ol>
+      <li>Click the <strong>Create Domain</strong> button.</li>
+      <li>Fill in the following fields:
+        <ul>
+          <li><strong>Label</strong> &mdash; A human-readable name for the domain (e.g. "Primary Short Domain").</li>
+          <li><strong>Domain URL</strong> &mdash; The short domain base URL (e.g. <code>https://sm1.it</code>).</li>
+          <li><strong>API Endpoint URL</strong> &mdash; The URL of the shortener API service that handles redirects and link creation.</li>
+          <li><strong>Origin Header</strong> &mdash; The allowed origin header for CORS configuration.</li>
+          <li><strong>Default</strong> &mdash; Toggle on to make this the default domain assigned to newly created tenants.</li>
+        </ul>
+      </li>
+      <li>Click <strong>Save</strong> to create the domain.</li>
+    </ol>
+
+    <h3>Editing or Deleting a Domain</h3>
+    <ol>
+      <li>Click on an existing domain to open it for editing.</li>
+      <li>Modify any fields as needed and click <strong>Save</strong>.</li>
+      <li>To delete a domain, click the <strong>Delete</strong> button and confirm the action.</li>
+    </ol>
+
+    <div class="info-box">
+      <strong>Assigning Domains to Tenants:</strong> After creating a shortener domain here, you can assign it to individual tenants via the Tenant Management panel (Section 2). Each tenant's QR codes will use their assigned domain for short verification links.
+    </div>
+
+    <img src="images/operator-shortener-domains.png" alt="Shortener domains list showing label, domain, API URL, and default status for each configured domain" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ===== SECTION 6: Contract Deployment Status ===== -->
+    <h2>6. Contract Deployment Status</h2>
+    <p>The Contract Deployment Status page provides a high-level overview of smart contract deployment progress across all tenants on the platform.</p>
+
+    <h3>Viewing Deployment Statistics</h3>
+    <ol>
+      <li>Navigate to <strong>Admin &gt; Contracts</strong> in the sidebar.</li>
+      <li>At the top of the page, you will see summary statistics:
+        <ul>
+          <li><strong>Total Tenants</strong> &mdash; The total number of tenants registered on the platform.</li>
+          <li><strong>Contracts Deployed</strong> &mdash; The number of tenants that have a deployed smart contract.</li>
+          <li><strong>Ready to Deploy</strong> &mdash; The number of tenants that have a chain and RPC URL assigned but no contract yet.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Monitoring Deployment Status</h3>
+    <ol>
+      <li>Below the statistics, review the list of tenants showing their deployment status.</li>
+      <li>Tenants are categorised as:
+        <ul>
+          <li><strong>Deployed</strong> &mdash; Contract has been successfully deployed. The contract address is visible.</li>
+          <li><strong>Pending</strong> &mdash; Chain is assigned but contract has not yet been deployed.</li>
+          <li><strong>Not Configured</strong> &mdash; No blockchain chain has been assigned to the tenant.</li>
+        </ul>
+      </li>
+      <li>To deploy a contract for a pending tenant, click the tenant name to navigate to the <strong>Tenant Management</strong> page where you can initiate deployment (see Section 2).</li>
+    </ol>
+
+    <img src="images/operator-contracts.png" alt="Contract deployment status page showing total tenants, deployed contracts, and ready-to-deploy counts" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+
+    <!-- ===== SECTION 7: Cross-Tenant Operations ===== -->
+    <h2>7. Cross-Tenant Operations</h2>
+    <p>As an Operator, you have the unique ability to operate across tenant boundaries. This section covers the additional privileges you have beyond what Admins can do.</p>
+
+    <h3>Full Admin Capabilities</h3>
+    <p>Operators inherit all capabilities of the Admin role. This means you can perform any tenant-level operation, including:</p>
+    <ul>
+      <li>Managing certificates (issue, revoke, extend, email, batch upload)</li>
+      <li>Managing tenant members (invite, remove, change roles)</li>
+      <li>Configuring tenant branding and settings</li>
+      <li>Viewing analytics and stats</li>
+    </ul>
+    <p>For detailed instructions on these operations, refer to the <a href="tutorial-admin.html">Admin Tutorial</a>.</p>
+
+    <h3>Viewing Certificates Across All Tenants</h3>
+    <ol>
+      <li>As an Operator, you can view and search certificates issued by any tenant on the platform.</li>
+      <li>Use the admin dashboard to browse certificates across tenant boundaries.</li>
+      <li>This is useful for auditing, support, and troubleshooting certificate issues reported by tenants.</li>
+    </ol>
+
+    <h3>Switching Between Tenant Contexts</h3>
+    <ol>
+      <li>Use the <strong>tenant switcher</strong> in the navigation to change which tenant context you are operating in.</li>
+      <li>When you switch tenants, the interface updates to show that tenant's certificates, members, settings, and branding.</li>
+      <li>All tenant-level actions (issuing certificates, managing members, etc.) will apply to the currently selected tenant.</li>
+    </ol>
+
+    <div class="info-box">
+      <strong>Best Practice:</strong> Always verify which tenant context you are in before performing actions such as issuing certificates or modifying settings. The current tenant name is displayed in the navigation bar.
+    </div>
+  </div>
+
+  <div class="footer">Sigalmark &copy; 2026. Secure blockchain-based certification technology.</div>
+</body>
+</html>
