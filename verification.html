@@ -35,68 +35,82 @@
     </p>
 
     <h2>Verification Methods</h2>
-    <p>There are several ways to verify a certificate:</p>
 
-    <h3>1. Scan the QR Code (Mobile App)</h3>
-    <p>The fastest way to verify a certificate:</p>
+    <h3>1. Paste a Link (Primary Method)</h3>
+    <p>The simplest way to verify a certificate:</p>
     <ol>
-      <li>Open the <strong>Sigalmark mobile app</strong> on your phone.</li>
-      <li>Tap <strong>Start Scanning</strong>.</li>
-      <li>Point your camera at the QR code on the certificate.</li>
-      <li>The app will automatically read the QR code and verify the certificate on the blockchain.</li>
-      <li>You will see a <strong>pass</strong> or <strong>fail</strong> result with the certificate details.</li>
+      <li>Go to the <strong>Verify</strong> page on the Sigalmark website (no login required).</li>
+      <li>Paste a certificate link into the input field. This can be:
+        <ul>
+          <li>A <strong>short URL</strong> (e.g. <code>sm1.it/AbCd</code>) &mdash; found on certificate QR codes.</li>
+          <li>A <strong>full verification URL</strong> with contract address parameters.</li>
+        </ul>
+      </li>
+      <li>Click <strong>Verify</strong>. The system resolves the link and fetches the certificate data from the blockchain.</li>
     </ol>
 
     <div class="info-box">
       <strong>Tip</strong>
-      You can also scan Sigalmark QR codes with your phone's built-in camera app. The QR code contains a short URL
-      that opens the web verification page.
+      You can scan a certificate QR code with your phone's camera app. It will open the short URL in your browser,
+      where you can verify it directly.
     </div>
 
-    <h3>2. Scan or Upload a QR Code (Web)</h3>
+    <h3>2. Manual Lookup (Advanced)</h3>
+    <p>If you have the raw blockchain details of a certificate:</p>
     <ol>
-      <li>Go to the <strong>Verify</strong> page on the Sigalmark website.</li>
-      <li>Either use the <strong>QR Scanner</strong> button to scan with your camera, or drag-and-drop / upload a QR code image.</li>
-      <li>The system will decode the QR code and verify the certificate automatically.</li>
-    </ol>
-
-    <h3>3. Paste a URL</h3>
-    <ol>
-      <li>Go to the <strong>Verify</strong> page.</li>
-      <li>Paste a certificate short URL (e.g. <code>sm1.it/AbCd</code>) or full verification URL into the input field.</li>
-      <li>Click <strong>Verify</strong>.</li>
-    </ol>
-
-    <h3>4. Manual Lookup</h3>
-    <p>If you have the technical details of a certificate:</p>
-    <ol>
-      <li>Go to the <strong>Verify</strong> page.</li>
+      <li>On the Verify page, click <strong>Manual lookup (advanced)</strong> to expand the form.</li>
       <li>Enter the <strong>Contract Address</strong>, <strong>Token ID</strong>, and <strong>Network ID</strong>.</li>
       <li>Click <strong>Verify</strong>.</li>
     </ol>
 
-    <h2>Verification Results</h2>
-    <p>After verification, you will see the certificate details:</p>
-    <ul>
-      <li><strong>Status</strong> &mdash; Valid, Expired, or Revoked.</li>
-      <li><strong>Name</strong> &mdash; The certified company or individual.</li>
-      <li><strong>Competency</strong> &mdash; The qualification or certification type.</li>
-      <li><strong>Issued</strong> &mdash; The date the certificate was issued.</li>
-      <li><strong>Expiry</strong> &mdash; The date the certificate expires.</li>
-      <li><strong>Network</strong> &mdash; The blockchain network where the certificate is stored.</li>
-    </ul>
+    <h3>3. Scan the QR Code (Mobile App)</h3>
+    <p>For on-the-go verification:</p>
+    <ol>
+      <li>Open the <strong>Sigalmark mobile app</strong> on your phone.</li>
+      <li>Tap <strong>Start Scanning</strong> and point your camera at the certificate's QR code.</li>
+      <li>The app will verify the certificate and show a pass/fail result with details.</li>
+    </ol>
 
-    <h3>Status Meanings</h3>
+    <h2>Verification Results</h2>
+    <p>After verification, results are displayed in several sections:</p>
+
+    <h3>Verdict Badge</h3>
+    <p>A large coloured banner at the top shows the overall result:</p>
     <table>
       <thead>
-        <tr><th>Status</th><th>What It Means</th></tr>
+        <tr><th>Verdict</th><th>Colour</th><th>Meaning</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Valid</strong></td><td>The certificate is authentic and has not expired or been revoked.</td></tr>
-        <tr><td><strong>Expired</strong></td><td>The certificate has passed its expiry date. It was authentic but is no longer current.</td></tr>
-        <tr><td><strong>Revoked</strong></td><td>The certificate has been permanently revoked by the issuing organisation.</td></tr>
+        <tr><td><strong>VALID</strong></td><td>Green</td><td>The certificate is authentic, current, and not revoked.</td></tr>
+        <tr><td><strong>INVALID</strong></td><td>Red</td><td>The certificate has issues &mdash; it may be revoked, expired, or not found.</td></tr>
+        <tr><td><strong>UNKNOWN</strong></td><td>Grey</td><td>The certificate could not be verified (e.g. unrecognised URL or network error).</td></tr>
       </tbody>
     </table>
+
+    <h3>Reason Code Pills</h3>
+    <p>Below the verdict, small coloured pills explain why the verdict was reached. Examples:</p>
+    <ul>
+      <li><strong>Short URL authorised</strong> &mdash; the short link was resolved successfully.</li>
+      <li><strong>Certificate found</strong> &mdash; the certificate exists on the blockchain.</li>
+      <li><strong>Not expired</strong> / <strong>Not revoked</strong> &mdash; the certificate is still current.</li>
+      <li><strong>Certificate revoked</strong> / <strong>Certificate expired</strong> &mdash; issues found.</li>
+    </ul>
+
+    <h3>Certificate Details Card</h3>
+    <p>Shows the full certificate information:</p>
+    <ul>
+      <li><strong>Name</strong> &mdash; The certified company or individual.</li>
+      <li><strong>Competency</strong> &mdash; The qualification or certification type.</li>
+      <li><strong>Issued by</strong> &mdash; The issuing organisation.</li>
+      <li><strong>Issued / Expiry</strong> &mdash; Certificate dates.</li>
+      <li><strong>Status</strong> &mdash; Valid, Expired, or Revoked.</li>
+    </ul>
+
+    <h3>Technical Details</h3>
+    <p>
+      A collapsible section shows the blockchain details: contract address, token ID, network ID,
+      and a link to the blockchain explorer where the NFT can be inspected independently.
+    </p>
 
     <h2>Branded Verification Pages</h2>
     <p>

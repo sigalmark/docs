@@ -271,59 +271,53 @@
 
     <!-- ================================================================== -->
     <h2 id="verifying-certificates">6. Verifying Certificates</h2>
-    <p>Sigalmark provides multiple ways to verify the authenticity of a certificate. Verification reads data directly from the blockchain, ensuring that the certificate is genuine and has not been tampered with.</p>
+    <p>Sigalmark lets anyone verify the authenticity of a certificate. Verification reads data directly from the blockchain, ensuring the certificate is genuine and has not been tampered with. No login is required.</p>
 
-    <h3>6.1 Verify via QR Code</h3>
+    <h3>6.1 Verify via Link</h3>
+    <p>The primary way to verify a certificate is by pasting its link:</p>
     <ol>
-      <li>Navigate to the <strong>Verify</strong> page from the main navigation (this page is publicly accessible and does not require login).</li>
-      <li>You have two options for QR code verification:
+      <li>Navigate to the <strong>Verify</strong> page from the main navigation.</li>
+      <li>Paste a certificate link into the input field. This can be:
         <ul>
-          <li><strong>Camera Scan</strong> &mdash; click the camera icon or <strong>Scan QR Code</strong> button, then point your device's camera at the certificate's QR code.</li>
-          <li><strong>Upload Image</strong> &mdash; if you have a screenshot or photo of the QR code, click <strong>Upload</strong> and select the image file from your device.</li>
+          <li>A <strong>short URL</strong> (e.g. <code>sm1.it/AbCd</code>) &mdash; typically found on QR codes.</li>
+          <li>A <strong>full verification URL</strong> with contract address parameters.</li>
         </ul>
       </li>
-      <li>The system will automatically decode the QR code and retrieve the certificate details from the blockchain.</li>
+      <li>Click <strong>Verify</strong>. The system resolves the link and fetches the certificate data from the blockchain.</li>
     </ol>
-    <img src="images/user-verify-page.png" alt="Verification page with scan and input options" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+    <img src="images/user-verify-page.png" alt="Verification page with link input and Verify button" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
 
-    <h3>6.2 Verify via URL</h3>
+    <h3>6.2 Manual Lookup (Advanced)</h3>
+    <p>If you have the raw blockchain details of a certificate, expand the <strong>Manual lookup (advanced)</strong> section:</p>
     <ol>
-      <li>On the Verify page, locate the URL input field.</li>
-      <li>Paste the full certificate verification URL (e.g., a short link from <code>sm1.it</code> or a full Sigalmark verification URL).</li>
-      <li>Click <strong>Verify</strong>. The system will resolve the URL and fetch the certificate data from the blockchain.</li>
-    </ol>
-
-    <h3>6.3 Verify via Manual Input</h3>
-    <p>If you have the raw blockchain details of a certificate, you can verify it manually:</p>
-    <ol>
-      <li>On the Verify page, switch to the <strong>Manual Input</strong> section.</li>
+      <li>Click <strong>Manual lookup (advanced)</strong> to expand the form.</li>
       <li>Enter the following three fields:
         <ul>
-          <li><strong>Contract Address</strong> &mdash; the Ethereum contract address of the issuing organisation (e.g., <code>0x1234...abcd</code>).</li>
-          <li><strong>Token ID</strong> &mdash; the unique token identifier of the certificate on the blockchain.</li>
-          <li><strong>Network ID</strong> &mdash; the blockchain network ID where the certificate was minted (e.g., <code>1</code> for Ethereum Mainnet, <code>137</code> for Polygon).</li>
+          <li><strong>Contract Address</strong> &mdash; the Ethereum contract address (e.g. <code>0x742d...bD08</code>).</li>
+          <li><strong>Token ID</strong> &mdash; the unique token identifier on the blockchain.</li>
+          <li><strong>Network ID</strong> &mdash; the blockchain network ID where the certificate was minted.</li>
         </ul>
       </li>
       <li>Click <strong>Verify</strong> to look up the certificate on-chain.</li>
     </ol>
-    <img src="images/user-verify-manual.png" alt="Manual verification form with contract address, token ID, and network ID filled in" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+    <img src="images/user-verify-manual.png" alt="Manual lookup expanded with contract address, token ID, and network ID fields" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
 
-    <h3>6.4 Reading Verification Results</h3>
+    <h3>6.3 Reading Verification Results</h3>
+    <p>After verification, the results are displayed in several sections:</p>
     <ol>
-      <li>After a successful verification, the results page will display the certificate details:
+      <li><strong>Verdict badge</strong> &mdash; a large coloured banner showing:
         <ul>
-          <li><strong>Recipient Name</strong> &mdash; who the certificate was issued to.</li>
-          <li><strong>Competency</strong> &mdash; the certified skill or qualification.</li>
-          <li><strong>Issuing Organisation</strong> &mdash; the name and branding of the organisation that issued it.</li>
-          <li><strong>Issue Date</strong> &mdash; when the certificate was minted.</li>
-          <li><strong>Expiry Date</strong> &mdash; when the certificate expires (if applicable).</li>
-          <li><strong>Status</strong> &mdash; whether the certificate is Active, Expired, or Revoked.</li>
+          <li><span style="color:green;font-weight:bold;">VALID</span> (green) &mdash; the certificate is authentic and current.</li>
+          <li><span style="color:red;font-weight:bold;">INVALID</span> (red) &mdash; the certificate has issues (revoked, expired, or not found).</li>
+          <li><span style="color:#666;font-weight:bold;">UNKNOWN</span> (grey) &mdash; the certificate could not be verified.</li>
         </ul>
       </li>
-      <li>A clear <strong>"Certificate validated"</strong> message confirms the certificate is authentic and recorded on the blockchain.</li>
-      <li>If the certificate has been revoked or cannot be found, an appropriate warning or error message will be displayed instead.</li>
+      <li><strong>Reason code pills</strong> &mdash; small badges explaining why the verdict was reached (e.g. "Short URL authorised", "Certificate found", "Not expired").</li>
+      <li><strong>Certificate details card</strong> &mdash; shows the recipient name, competency, issuing organisation, issue date, expiry date, and status.</li>
+      <li><strong>Technical details</strong> (collapsible) &mdash; contract address, token ID, network ID, and a link to the blockchain explorer.</li>
+      <li>Click <strong>Verify another</strong> to start a new verification.</li>
     </ol>
-    <img src="images/user-verify-result.png" alt="Verification result showing Certificate validated message" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
+    <img src="images/user-verify-result.png" alt="Verification result showing VALID verdict badge, reason pills, and certificate details" style="max-width:100%;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;">
 
     <!-- ================================================================== -->
     <h2>7. Mobile App</h2>
