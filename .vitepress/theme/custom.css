@@ -1,0 +1,138 @@
+/**
+ * Sigalmark docs theme — ported from the app's design system (globals.css).
+ * Light = the default olive theme; .dark = the app's dark theme.
+ */
+:root {
+  /* Brand palette (identical to the app) */
+  --sm-olive: #4B5320;
+  --sm-olive-drab: #6B8E23;
+  --sm-burnt-orange: #CC5500;
+  --sm-accent: #C25100;      /* darkened for AA white-on-accent, as in the app */
+  --sm-vivid-orange: #FF7518;
+  --sm-rust: #B7410E;
+  --sm-khaki: #F0E68C;
+  --sm-off-white: #F7F3E9;
+  --sm-light-beige: #D6C9B4;
+  --sm-card: #e8ddc9;
+  --sm-border: #c9bda7;
+
+  --vp-font-family-base: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --vp-c-bg: var(--sm-off-white);
+  --vp-c-bg-alt: #efe9db;
+  --vp-c-bg-soft: var(--sm-card);
+  --vp-c-bg-elv: var(--sm-off-white);
+  --vp-c-text-1: #1c1c1c;
+  --vp-c-text-2: #4b5563;
+  --vp-c-text-3: #6B7280;
+  --vp-c-divider: var(--sm-border);
+  --vp-c-border: var(--sm-border);
+  --vp-c-gutter: var(--sm-border);
+
+  --vp-c-brand-1: var(--sm-olive);
+  --vp-c-brand-2: #5a6427;
+  --vp-c-brand-3: var(--sm-olive);
+  --vp-c-brand-soft: rgba(75, 83, 32, 0.14);
+
+  /* Links & accents lean on the burnt orange, as the app does */
+  --vp-c-tip-1: var(--sm-olive);
+  --vp-c-tip-soft: rgba(107, 142, 35, 0.16);
+  --vp-c-warning-1: #7c3a03;
+  --vp-c-warning-soft: #fbe6c2;
+  --vp-c-danger-1: #8a1c10;
+  --vp-c-danger-soft: #f8dcd6;
+  --vp-c-success-1: #14532d;
+  --vp-c-success-soft: #d9ecc4;
+
+  --vp-button-brand-bg: var(--sm-olive);
+  --vp-button-brand-hover-bg: #3f4519;
+  --vp-button-brand-active-bg: #333a12;
+  --vp-button-brand-text: var(--sm-off-white);
+
+  --vp-home-hero-name-color: var(--sm-olive);
+
+  --vp-nav-bg-color: var(--sm-olive);
+  --vp-sidebar-bg-color: #efe9db;
+
+  --vp-custom-block-tip-border: #a8c98a;
+  --vp-custom-block-tip-bg: #d9ecc4;
+  --vp-custom-block-tip-text: #14532d;
+  --vp-custom-block-warning-border: #d9a95e;
+  --vp-custom-block-warning-bg: #fbe6c2;
+  --vp-custom-block-warning-text: #7c3a03;
+  --vp-custom-block-danger-border: #d99b8e;
+  --vp-custom-block-danger-bg: #f8dcd6;
+  --vp-custom-block-danger-text: #8a1c10;
+
+  --vp-code-color: #3f4519;
+  --vp-code-bg: #ece4d2;
+  --vp-code-block-bg: #24290f;
+}
+
+.dark {
+  --vp-c-bg: #1e1e1e;
+  --vp-c-bg-alt: #191919;
+  --vp-c-bg-soft: #2b2b2b;
+  --vp-c-bg-elv: #2b2b2b;
+  --vp-c-text-1: #f5f5f5;
+  --vp-c-text-2: #b9bdc6;
+  --vp-c-text-3: #8b8f98;
+  --vp-c-divider: #333333;
+  --vp-c-border: #333333;
+  --vp-c-gutter: #333333;
+
+  --vp-c-brand-1: #a3b763;
+  --vp-c-brand-2: #8fa452;
+  --vp-c-brand-3: #4B5320;
+  --vp-c-brand-soft: rgba(163, 183, 99, 0.16);
+
+  --vp-button-brand-bg: #4B5320;
+  --vp-button-brand-hover-bg: #5a6427;
+  --vp-button-brand-text: #f5f5f5;
+
+  --vp-nav-bg-color: #2c2c2c;
+  --vp-sidebar-bg-color: #191919;
+
+  --vp-custom-block-tip-border: #2f6b48;
+  --vp-custom-block-tip-bg: #123021;
+  --vp-custom-block-tip-text: #86efac;
+  --vp-custom-block-warning-border: #7a5f14;
+  --vp-custom-block-warning-bg: #3a2c08;
+  --vp-custom-block-warning-text: #fcd34d;
+  --vp-custom-block-danger-border: #7d3a3a;
+  --vp-custom-block-danger-bg: #3f1416;
+  --vp-custom-block-danger-text: #fca5a5;
+
+  --vp-code-color: #d8e0b0;
+  --vp-code-bg: #2f3320;
+  --vp-code-block-bg: #191c0d;
+}
+
+/* Olive top nav with off-white text, like the app sidebar */
+.VPNavBar:not(.home) { background: var(--vp-nav-bg-color); }
+.VPNavBar .VPNavBarMenuLink,
+.VPNavBar .VPNavBarMenuGroup .text { color: var(--sm-off-white); }
+/* The title zone sits over the light sidebar area, not the olive bar */
+.VPNavBar .VPNavBarTitle .title { color: var(--vp-c-brand-1); }
+.dark .VPNavBar .VPNavBarTitle .title { color: #f5f5f5; }
+.VPNavBar .VPNavBarMenuLink:hover,
+.VPNavBar .VPNavBarMenuLink.active { color: var(--sm-khaki); }
+.dark .VPNavBar .VPNavBarMenuLink:hover,
+.dark .VPNavBar .VPNavBarMenuLink.active { color: var(--sm-vivid-orange); }
+
+/* Screenshots: card-style frame */
+.vp-doc img {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Status badge table cells */
+.vp-doc .badge-valid, .vp-doc .badge-warning, .vp-doc .badge-danger, .vp-doc .badge-neutral {
+  display: inline-block; padding: 2px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; border: 1px solid;
+}
+.vp-doc .badge-valid   { background: var(--vp-custom-block-tip-bg); color: var(--vp-custom-block-tip-text); border-color: var(--vp-custom-block-tip-border); }
+.vp-doc .badge-warning { background: var(--vp-custom-block-warning-bg); color: var(--vp-custom-block-warning-text); border-color: var(--vp-custom-block-warning-border); }
+.vp-doc .badge-danger  { background: var(--vp-custom-block-danger-bg); color: var(--vp-custom-block-danger-text); border-color: var(--vp-custom-block-danger-border); }
+.vp-doc .badge-neutral { background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); border-color: var(--vp-c-border); }
