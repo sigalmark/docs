@@ -108,17 +108,19 @@
   --vp-code-block-bg: #191c0d;
 }
 
-/* Olive top nav with off-white text, like the app sidebar */
+/* Olive top nav with off-white text, like the app sidebar.
+   Scope to NON-home bars only — the home hero bar is transparent/light, so
+   off-white link text would be invisible there. Home keeps default dark text. */
 .VPNavBar:not(.home) { background: var(--vp-nav-bg-color); }
-.VPNavBar .VPNavBarMenuLink,
-.VPNavBar .VPNavBarMenuGroup .text { color: var(--sm-off-white); }
+.VPNavBar:not(.home) .VPNavBarMenuLink,
+.VPNavBar:not(.home) .VPNavBarMenuGroup .text { color: var(--sm-off-white); }
 /* The title zone sits over the light sidebar area, not the olive bar */
 .VPNavBar .VPNavBarTitle .title { color: var(--vp-c-brand-1); }
 .dark .VPNavBar .VPNavBarTitle .title { color: #f5f5f5; }
-.VPNavBar .VPNavBarMenuLink:hover,
-.VPNavBar .VPNavBarMenuLink.active { color: var(--sm-khaki); }
-.dark .VPNavBar .VPNavBarMenuLink:hover,
-.dark .VPNavBar .VPNavBarMenuLink.active { color: var(--sm-vivid-orange); }
+.VPNavBar:not(.home) .VPNavBarMenuLink:hover,
+.VPNavBar:not(.home) .VPNavBarMenuLink.active { color: var(--sm-khaki); }
+.dark .VPNavBar:not(.home) .VPNavBarMenuLink:hover,
+.dark .VPNavBar:not(.home) .VPNavBarMenuLink.active { color: var(--sm-vivid-orange); }
 
 /* Screenshots: card-style frame */
 .vp-doc img {
